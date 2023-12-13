@@ -1,2 +1,2 @@
-# Hack2023
+# StemHTX2023
 Materiale til STEM workshop Hack et WiFi for lærere fra HTX.
