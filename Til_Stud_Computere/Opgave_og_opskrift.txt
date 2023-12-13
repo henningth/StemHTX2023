@@ -1,6 +1,6 @@
 ---------Opgaver---------
 -Router#1 – Password på 8 karakterer. Passwordet indeholder navnet på Henriks kat samt årstal for hvornår Henrik startede med at undervise på UCN – eks: ”Navn1900”.
---Hint: Brug Crunch til at lave en ordliste, hvor du anvender et mønster. eks.: crunch 8 8 0123456789 -t Navn@@@@ -o minOrdlisteTilOpgave2
+--Hint: Brug Crunch til at lave en ordliste, hvor du anvender et mønster. eks.: crunch 8 8 0123456789 -t Navn@@@@ -o minOrdlisteTilOpgave1
 
 -Router#2 – Anvend eksisterende ordlister fra internettet (ligger allerede på computeren). Passwordet er gemt i en af listerne.
 --Hint: Du kan enten sammensætte alle listerne til en enkelt liste eller tage én liste ad gangen. Brug ”cat” kommandoen i en terminal til at sammensætte listerne.
